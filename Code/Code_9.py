@@ -19,8 +19,9 @@ print('theortical mean: ',mean(X,Y))
 
 # number of trails
 n=1000
-Y=[]
 c=0
+Y=[]
+ #PMF of X calculation   
 for i in range(n):
     if 2==random.choice(X_1)+random.choice(X_2):
         c=c+1
@@ -82,8 +83,51 @@ plt.ylabel('P(X=x)')
 plt.title('PMF of X')
 plt.legend()
 plt.show()  
-  
 
+#PMF calculation of X_1
+c=0
+y=[]
+for i in range(6):
+    for j in range(n):
+        if i+1==random.choice(X_1):
+            c=c+1
+    y.append(c/n)
+    c=0
+Y=[]
+for i in range(6):
+    sum=0
+    for j in range(i+1):
+        sum=sum+y[j]
+    Y.append(sum)
+        
+plt.stem(X_1,Y,linefmt='red',markerfmt='D',label='Experimental PMF')
+plt.xlabel('X_1')
+plt.ylabel('PMF of X_1')
+plt.title('PMF of X_1')
+plt.legend()
+plt.show()
+#PMF Calculation of X_2
+#PMF of X_1 Calculation
+c=0
+y=[]
+for i in range(6):
+    for j in range(n):
+        if i+1==random.choice(X_1):
+            c=c+1
+    y.append(c/n)
+    c=0
+Y=[]
+for i in range(6):
+    sum=0
+    for j in range(i+1):
+        sum=sum+y[j]
+    Y.append(sum)
+plt.stem(X_1,Y,linefmt='red',markerfmt='D',label='Experimental PMF')
+plt.xlabel('X_2')
+plt.ylabel('PMF of X_2')
+plt.title('PMF of X_2')
+plt.legend()
+plt.show()
 
     
     
